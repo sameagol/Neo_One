@@ -7,8 +7,12 @@
         "id": "e62136c71b1bab3a",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "Notes/Talking Points.md",
+            "mode": "source",
+            "source": false
+          }
         }
       }
     ],
@@ -73,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Notes/Talking Points.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Notes/Talking Points.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -110,7 +116,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Notes/Talking Points.md"
+              }
             }
           }
         ]
@@ -121,5 +129,10 @@
     "collapsed": true
   },
   "active": "e62136c71b1bab3a",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Diagrams/Ontology.excalidraw.png",
+    "Diagrams/Ontology.excalidraw.md",
+    "Neo4j Links/Cheat Sheet.md",
+    "Diagrams/Ontology and Data Graph.md"
+  ]
 }
