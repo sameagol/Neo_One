@@ -5,6 +5,12 @@ This is meant to be an example of using python to transform csvs into a knowledg
 
 The documentation is meant to be read and added to using Obsidian (https://obsidian.md) but any text editor should work.
 
+# Requirements
+python 3.9, see Documentation/Requirements/xxx_python_requirements.txt
+Neo4j desktop: https://neo4j.com/download/
+Neo4j APOC plugin: https://neo4j.com/labs/apoc/4.4/installation/#neo4j-desktop
+
+# Design Choices
 As of Aug 1, 2020, a discussion point is how to store "allowable relationships" There are options.
 1. Don't store allowable relationships explicitly.
     - Neo4j has the ability to extract allowable relationships: https://neo4j.com/labs/apoc/4.4/database-introspection/meta/
