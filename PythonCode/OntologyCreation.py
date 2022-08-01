@@ -1,11 +1,11 @@
-import UDFClasses
+import UDClasses
 
 uri = 'bolt://localhost:7687'
 user = 'neo4j'
 pwd = 'Neo_One'
 db = 'neo4j'
 
-conn = UDFClasses.Neo4jConnection(uri, user, pwd, db)
+conn = UDClasses.Neo4jConnection(uri, user, pwd, db)
 
 # conn.query('CREATE CONSTRAINT papers IF NOT EXISTS ON (p:Paper)     ASSERT p.id IS UNIQUE')
 # conn.query('CREATE CONSTRAINT authors IF NOT EXISTS ON (a:Author) ASSERT a.name IS UNIQUE')
