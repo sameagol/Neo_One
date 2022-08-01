@@ -1,3 +1,8 @@
+"""
+This is meant to be a cheatsheet-style stash.
+Some of these queries are most useful when run in Neo4j Browser as their output is visual.
+"""
+
 import UDClasses
 import pandas as pd
 
@@ -24,6 +29,9 @@ conn.query('MERGE (n:Meta:Meta_Person)')
 
 # Show all nodes
 conn.query('MATCH(n) RETURN (n)')
+
+# Show meta graph
+conn.query('call apoc.meta.graph')
 
 # Delete certain nodes
 conn.query('MATCH (n:Post_Type) DELETE (n)')

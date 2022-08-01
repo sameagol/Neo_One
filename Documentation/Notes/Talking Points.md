@@ -15,6 +15,6 @@ Can get the repo as a zip... how do we get that to NIPR?
 
 Up next:
 Insert data... is there a better way than unwind?
-- [ ] Try APOC
-- [ ] Try dictionary
-- [ ] Try to get meta
+- [ ] Try APOC data insert
+- [ ] Try dictionary data insert
+- [x] Try to get meta using APOC
