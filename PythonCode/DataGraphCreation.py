@@ -138,6 +138,7 @@ prop_dict = {
 ## END STUPIDITY
 
 #### Method 3: pseudo-config
+# The subdictionary's keys are descriptions, the values are what shows up in the data
 node_dict = {
     'Person':
         {'Labels': 'Person',
@@ -162,3 +163,40 @@ MERGE (p:{Labels} {{
     DataProperties=node_dict['Person']['DataProperties'],
 )
 conn.query(query, parameters={'rows': user_data.to_dict('records')})
+
+node_dict = {
+    'Person':
+        {'Labels': 'Person',
+         'DataSourceID': 'Index',
+         'OutputSourceID': 'data_source_id',
+         'DataProperties': '`Subscription Date`',
+         'OutputProperties': 'test_property'},
+}
+
+# Test by adding Person nodes
+unk_format_dict = {
+    'labels': [
+        'Person'
+    ],
+    'properties': {
+        'name': 'Person',
+        'data_source_id': howtogetthis,
+        'test_property': howtogetthis2,
+    }
+}
+
+query = '''
+UNWIND $rows as row
+MERGE (p:{Labels} {{
+{OutputSourceID}:row.{DataSourceID}, 
+{OutputProperties}:row.{DataProperties}
+}})
+'''.format(
+    Labels=node_dict['Person']['Labels'],
+    OutputSourceID=node_dict['Person']['OutputSourceID'],
+    DataSourceID=node_dict['Person']['DataSourceID'],
+    OutputProperties=node_dict['Person']['OutputProperties'],
+    DataProperties=node_dict['Person']['DataProperties'],
+)
+conn.query(query, parameters={'rows': user_data.to_dict('records')})
+

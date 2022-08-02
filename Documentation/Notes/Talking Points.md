@@ -18,3 +18,4 @@ Insert data... is there a better way than unwind?
 - [x] Try APOC data insert https://gist.github.com/jexp/caeb53acfe8a649fecade4417fb8876a
 - [ ] Try dictionary data insert
 - [x] Try to get meta using APOC
+- [ ] Try using meta to do something within python

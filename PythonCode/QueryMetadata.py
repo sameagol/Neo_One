@@ -9,4 +9,6 @@ conn = UDClasses.Neo4jConnection(uri, user, pwd, db)
 
 a = 1
 
-conn.query('call apoc.meta.graph')
+result = conn.query('call apoc.meta.graph')
+
+
