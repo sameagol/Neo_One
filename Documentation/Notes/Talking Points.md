@@ -15,7 +15,9 @@ Can get the repo as a zip... how do we get that to NIPR?
 
 Up next:
 Insert data... is there a better way than unwind?
-- [x] Try APOC data insert https://gist.github.com/jexp/caeb53acfe8a649fecade4417fb8876a
-- [ ] Try dictionary data insert
-- [x] Try to get meta using APOC
+- [ ] Try py2neo package
+- [ ] Try constraints
+- [ ] Try assertions on allowable relationships vs meta graph
+- [x] Try Neo4j python package stuff
 - [ ] Try using meta to do something within python
+- [ ] Try dictionary data insert

@@ -1,4 +1,20 @@
 from neo4j import GraphDatabase
+import pandas as pd
+from py2neo import Graph
+from py2neo.bulk import create_nodes, merge_nodes
+
+
+# Define function for inserting nodes with just a dictionary and a table
+def merge_nodes_from_csv(node_dict: dict, df: pd.DataFrame, graph):
+    merge_nodes(
+        graph.auto(),  # not sure what this is
+        df[list(node_dict['user_data'].values())].values.tolist(),  # list of lists data format
+        merge_key=tuple(node_dict['Labels'] + list(node_dict['user_data'].keys())),
+        # tuple of distinction
+        labels=tuple(node_dict['Labels']),  # Tuple of labels
+        keys=list(node_dict['user_data'].keys())  # List of parameter names
+    )
+
 
 # Mostly pasted from Shuyi Yang: https://towardsdatascience.com/neo4j-cypher-python-7a919a372be7
 class Neo4jConnection:
