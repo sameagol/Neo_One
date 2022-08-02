@@ -35,7 +35,6 @@ a = 1
 # query = '''
 # UNWIND $rows as row
 # MERGE (p:Paper {id:row.id}) ON CREATE SET p.title = row.title
-#
 # // connect categories
 # WITH row, p
 # UNWIND row.category_list AS category_name
@@ -96,4 +95,70 @@ MERGE (Post)-[:has_type]->(Post_Type)
 '''
 conn.query(query, parameters={'rows': posts_data.to_dict('records')})
 
-#### Method 2: pseudo-config
+#### Method 2a: APOC a
+# Manually-written rules
+# Nodes first
+# Use APOC
+# This turns out to be trivially similar to Method 1
+
+# Add Person nodes
+query = '''
+UNWIND $rows as row
+MERGE (p:Person {data_source_id:row.Index, test_property:row.`Subscription Date`}) 
+'''
+conn.query(query, parameters={'rows': user_data.to_dict('records')})
+
+# Example:
+# UNWIND {batch} as row
+# CALL apoc.create.node(row.labels, row.properties) yield node
+# RETURN count(*)
+
+user_data_formatted = user_data[['Index', 'Subscription Date']].rename({
+    'Index': 'data_source_id',
+    'Subscription Date': 'test_property'
+}, axis=1)
+
+query = '''
+UNWIND $rows as row
+CALL apoc.create.node(['Person'], {test_property: row.test_property}) yield node
+RETURN count(*)
+'''
+conn.query(query, parameters={'rows': user_data_formatted.to_dict('records')})
+
+## BEGIN STUPIDITY
+user_data_formatted_2 = user_data[['Index', 'Subscription Date']].rename({
+    'Index': 'data_source_id',
+    'Subscription Date': 'test_property'
+}, axis=1)
+user_data_formatted_2['Labels'] = [['Person', 'Test_Label']]*len(user_data_formatted_2)
+user_data_formatted_2['Property'] = {'test_property': user_data_formatted_2['test_property']}
+prop_dict = {
+    'test_property': row['test_property'] for row in user_data_formatted_2.iterrows()
+}
+## END STUPIDITY
+
+#### Method 3: pseudo-config
+node_dict = {
+    'Person':
+        {'Labels': 'Person',
+         'DataSourceID': 'Index',
+         'OutputSourceID': 'data_source_id',
+         'DataProperties': '`Subscription Date`',
+         'OutputProperties': 'test_property'},
+}
+
+# Test by adding Person nodes
+query = '''
+UNWIND $rows as row
+MERGE (p:{Labels} {{
+{OutputSourceID}:row.{DataSourceID}, 
+{OutputProperties}:row.{DataProperties}
+}})
+'''.format(
+    Labels=node_dict['Person']['Labels'],
+    OutputSourceID=node_dict['Person']['OutputSourceID'],
+    DataSourceID=node_dict['Person']['DataSourceID'],
+    OutputProperties=node_dict['Person']['OutputProperties'],
+    DataProperties=node_dict['Person']['DataProperties'],
+)
+conn.query(query, parameters={'rows': user_data.to_dict('records')})
