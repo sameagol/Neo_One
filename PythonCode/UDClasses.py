@@ -5,14 +5,16 @@ from py2neo.bulk import create_nodes, merge_nodes
 
 
 # Define function for inserting nodes with just a dictionary and a table
-def merge_nodes_from_csv(node_dict: dict, df: pd.DataFrame, graph):
+def merge_nodes_from_dataframe(node_dict: dict, df: pd.DataFrame, data_source: str, graph):
+
+    data_cols_list = list(node_dict[data_source].values())
+
     merge_nodes(
         graph.auto(),  # not sure what this is
-        df[list(node_dict['user_data'].values())].values.tolist(),  # list of lists data format
-        merge_key=tuple(node_dict['Labels'] + list(node_dict['user_data'].keys())),
-        # tuple of distinction
+        df[data_cols_list].values.tolist(),  # list of lists data format
+        merge_key=tuple(node_dict['Labels'] + list(node_dict[data_source].keys())),  # tuple of distinction
         labels=tuple(node_dict['Labels']),  # Tuple of labels
-        keys=list(node_dict['user_data'].keys())  # List of parameter names
+        keys=list(node_dict[data_source].keys())  # List of parameter names
     )
 
 
