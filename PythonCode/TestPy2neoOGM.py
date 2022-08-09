@@ -37,6 +37,15 @@ class Movie(Model):
 
 
 class Person(ogm.Model):
+
+    def __init__(self, const_dict):
+
+        self.Person = 'Person' in const_dict.keys()
+        self.TestLabel = ogm.Label()
+
+        self.user_data = ogm.PropertyDict()
+        self.posts_data = ogm.PropertyDict()
+
     __primarykey__ = 'data_source_id'  # ? What if there are two data sources for one person?
 
     Person = ogm.Label()
@@ -47,7 +56,7 @@ class Person(ogm.Model):
 
     posts = ogm.RelatedTo('Post', 'CREATES')
 
-person_type = Person()
+person_type = Person({''})
 bob = person_type
 
 person_dict = {

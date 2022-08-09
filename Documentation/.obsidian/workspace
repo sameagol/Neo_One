@@ -7,11 +7,9 @@
         "id": "e62136c71b1bab3a",
         "type": "leaf",
         "state": {
-          "type": "markdown",
+          "type": "excalidraw",
           "state": {
-            "file": "Notes/Talking Points.md",
-            "mode": "source",
-            "source": false
+            "file": "Diagrams/Drawing 2022-08-08 20.07.11.excalidraw.md"
           }
         }
       }
@@ -77,7 +75,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Talking Points.md",
+                "file": "Diagrams/Drawing 2022-08-08 20.07.11.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +92,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Talking Points.md",
+                "file": "Diagrams/Drawing 2022-08-08 20.07.11.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +115,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Talking Points.md"
+                "file": "Diagrams/Drawing 2022-08-08 20.07.11.excalidraw.md"
               }
             }
           }
@@ -130,10 +128,12 @@
   },
   "active": "e62136c71b1bab3a",
   "lastOpenFiles": [
+    "Diagrams/20220803_Proposed_Ontology_Data_Interaction.excalidraw.md",
+    "Diagrams/Drawing 2022-08-08 20.07.11.excalidraw.md",
+    "Notes/Talking Points.md",
+    "Diagrams/20220803_Proposed_Ontology_Data_Interaction.excalidraw.png",
     "Diagrams/Ontology.excalidraw.png",
     "Diagrams/Ontology.excalidraw.md",
-    "Notes/Talking Points.md",
-    "Diagrams/20220803_Proposed_Ontology_Data_Interaction.excalidraw.md",
     "Neo4j Links/Cheat Sheet.md",
     "Diagrams/Ontology and Data Graph.md"
   ]
