@@ -42,3 +42,4 @@ conn.query('MATCH (n:Post)-[r]->() DELETE r')
 
 # Delete entire graph. This does not delete labels.
 conn.query('MATCH (n) DETACH DELETE n')
+graph.run('MATCH (n) DETACH DELETE n')

@@ -1,0 +1,1 @@
+{"Label": "CREATES", "posts_data": {"Properties": {"data_source_id": "Index", "test_property": "Post Date"}, "Source Node": "Person", "Destination Node": "Post"}}

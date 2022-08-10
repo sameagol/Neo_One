@@ -17,8 +17,9 @@ Can get the repo as a zip... how do we get that to NIPR?
 
 Up next:
 Insert data... is there a better way than unwind?
+- [ ] Try initial upload with 80% data, then update with 10% then 10%
 - [ ] Try py2neo ogm / Model
-- [ ] Try ontology <> data interaction arc
+- [x] Try ontology <> data interaction arc
 - [ ] Try constraints
 - [ ] Try assertions on allowable relationships vs meta graph
 - [x] Try Neo4j python package stuff
